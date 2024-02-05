@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => QuestionController()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Splash(),
       ),
     );

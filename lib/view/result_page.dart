@@ -64,7 +64,7 @@ class _ResultpageState extends State<Resultpage> {
                     height: 5,
                   ),
                   Text(
-                    "You attempt${widget.totalQst} Questions and \nfrom that ${widget.correctAns} answer is correct.",
+                    "You attempt ${widget.totalQst} Questions and \nfrom that ${widget.correctAns} answer is correct.",
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   )

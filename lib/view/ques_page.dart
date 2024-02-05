@@ -27,7 +27,7 @@ class _QuestionPageState extends State<QuestionPage> {
   @override
   Widget build(BuildContext context) {
     QuestionController provider = Provider.of<QuestionController>(context);
-    var percent = ((provider.questionNo / provider.quizlist!.length) * 100);
+    late var percent = ((provider.questionNo / provider.quizlist!.length) * 100);
     return Scaffold(
       backgroundColor: backgroundClr,
       body: provider.isloading
@@ -49,6 +49,9 @@ class _QuestionPageState extends State<QuestionPage> {
                         percent: percent,
                         theme: RoundedProgressBarTheme.purple),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   // //questions shown
                   SizedBox(
                       child: Text(
@@ -58,6 +61,9 @@ class _QuestionPageState extends State<QuestionPage> {
                       color: Colors.white,
                     ),
                   )),
+                  SizedBox(
+                    height: 10,
+                  ),
                   // options shown
                   Container(
                     height: MediaQuery.of(context).size.width,

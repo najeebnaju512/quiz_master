@@ -50,15 +50,24 @@ class QuestionController extends ChangeNotifier {
     if (quizlist?[questionNo].options[tappedIndex].isCorrect == true) {
       result++;
       print("result is $result");
+      if (result == quizlist!.length-1) {
+        result = 0;
+      }
       notifyListeners();
     }
 
-    if (questionNo!=4) {
+    if (questionNo != 4) {
       questionNo++;
     } else {
       Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => Resultpage(correctAns: result, totalQst: quizlist!.length,)));
+          builder: (context) => Resultpage(
+                correctAns: result,
+                totalQst: quizlist!.length,
+              )));
+      questionNo = 0;
     }
+    // result = 0;
+    // questionNo = 0;
     tappedIndex = null;
     isTapped = false;
     notifyListeners();
