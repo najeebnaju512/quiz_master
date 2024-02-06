@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_master/utils/color.dart';
-import 'package:quiz_master/view/ques_page.dart';
 import 'package:quiz_master/view/splash.dart';
+
 
 class Resultpage extends StatefulWidget {
   final int correctAns;
@@ -77,8 +77,8 @@ class _ResultpageState extends State<Resultpage> {
           ),
           InkWell(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Splash()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Splash()));
 
               // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>isPass?Splash():QuestionPage()));
             },

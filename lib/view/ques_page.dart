@@ -27,7 +27,8 @@ class _QuestionPageState extends State<QuestionPage> {
   @override
   Widget build(BuildContext context) {
     QuestionController provider = Provider.of<QuestionController>(context);
-    late var percent = ((provider.questionNo / provider.quizlist!.length) * 100);
+    late var percent =
+        ((provider.questionNo / provider.quizlist!.length) * 100);
     return Scaffold(
       backgroundColor: backgroundClr,
       body: provider.isloading
@@ -44,10 +45,18 @@ class _QuestionPageState extends State<QuestionPage> {
                   Container(
                     padding: EdgeInsets.all(20),
                     child: RoundedProgressBar(
+                        style: RoundedProgressBarStyle(
+                            widthShadow: 2,
+                            borderWidth: 0,
+                            backgroundProgress: Colors.deepPurple),
                         reverse: true,
+                        childLeft: Text("$percent%",
+                            style: TextStyle(color: Colors.black)),
                         height: 25,
                         percent: percent,
-                        theme: RoundedProgressBarTheme.purple),
+                        theme: percent < 50
+                            ? RoundedProgressBarTheme.purple
+                            : RoundedProgressBarTheme.red),
                   ),
                   SizedBox(
                     height: 10,
@@ -109,9 +118,7 @@ class _QuestionPageState extends State<QuestionPage> {
                           .nextQueistion(context);
                     },
                     child: Center(
-                      child: Visibility(
-                          // visible: provider.questionNo == 4 ? false : true,
-                          child: Container(
+                      child: Container(
                         height: 50,
                         width: 180,
                         decoration: BoxDecoration(
@@ -125,7 +132,7 @@ class _QuestionPageState extends State<QuestionPage> {
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
-                      )),
+                      ),
                     ),
                   )
                 ],
